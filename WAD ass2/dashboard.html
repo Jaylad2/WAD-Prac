@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+</head>
+<body>
+    <h3>Dashboard page</h3>
+    <h4 id="welcome-msg"> </h4>
+    <h4 id="email-msg"> </h4>
+
+    <input type="button" onclick="handleLogout()" value="Logout" />
+</body>
+
+    <script>
+
+        function handleLogout() {
+            localStorage.removeItem("name");
+            localStorage.removeItem("email");
+            window.location.href="login.html"
+        }
+
+        function getUserDetails() {
+            document.getElementById("welcome-msg").innerHTML = "Welcome " + localStorage.getItem("name");
+            document.getElementById("email-msg").innerHTML = "Your Email is " + localStorage.getItem("email");
+        }        
+
+        window.onload = getUserDetails();  
+    </script>
+</html>
+
